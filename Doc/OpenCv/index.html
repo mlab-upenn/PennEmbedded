@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>OBJECT TRACKING WITH OPENCV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- <[if lt IE 9]> -->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!-- <![endif]> -->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-∑precomposed.png">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>          
+        </div>
+      </div>
+    </div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>OBJECT TRACKING WITH OPENCV</h1>
+    <h2>PennEmbedded Boot Camp</h2>
+    <!--<p>MLE+ is an open-source Matlab/Simulink toolbox for co-simulation with the whole-building energy simulator EnergyPlus. It is designed for engineers and researchers who are familiar with Matlab and Simulink and want to use these software tools in building energy simulation.</p>-->
+    <!--<p><a class="lead" target="_blank" href="http://repository.upenn.edu/mlab_papers/63"> Download 2014 ICCPS paper</a></p> --><!--http://eepurl.com/rGEUj-->
+    <!-- <p class="lead">MLE+ is a tool for energy-efficient building automation design, co-simulation and analysis.</p> --> 
+  </div>
+</header>
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li><a href="#introduction"><i class="icon-chevron-right"></i> Project Description</a></li>
+          <li><a href="#howitworks"><i class="icon-chevron-right"></i> Introduction to Opencv</a></li>
+          <li><a href="#publication"><i class="icon-chevron-right"></i> Pre-Requisites</a></li>
+		  <li><a href="#implementation"><i class="icon-chevron-right"></i> Implementation </a></li>
+          <li><a href="#subscribe"><i class="icon-chevron-right"></i> Subscribe </a></li>
+	  <!--li><a href="#award"><i class="icon-chevron-right"></i> Awards</a></li-->	  
+          <!--li><a href="#installation"><i class="icon-chevron-right"></i> Installation</a></li-->
+          <!--li><a href="#tutorial"><i class="icon-chevron-right"></i> Tutorial-Videos</a></li-->
+          <!--li><a href="#contact"><i class="icon-chevron-right"></i> Contact</a></li-->
+          <!--<li><a href="#videos"><i class="icon-chevron-right"></i> Videos</a></li>-->
+	  <!--<li><a href="#testCases"><i class="icon-chevron-right"></i> Test Cases</a></li>
+          <li><a href="#development"><i class="icon-chevron-right"></i> Development</a></li>-->
+        </ul>
+      </div>
+      <div class="span9">
+
+        <!-- Introduction
+        ================================================== -->
+        <section id="introduction">
+          <div class="row">
+            <div class="page-header">
+              <h1>Project Description</h1>
+            </div>
+            <p align="justify">We would be making a Object tracker application in which we control a motor connected to a shaft to follow a predefined object.
+
+            </p>
+            <br>
+                  <!--  Carousel -->
+      <!--  consult Bootstrap docs at 
+            http://twitter.github.com/bootstrap/javascript.html#carousel -->
+      <div id="this-carousel-id" class="carousel slide">
+        <div class="carousel-inner">
+	  <div class="item active">
+            <a>  <img src="assets/img/pi.jpg" alt="Inverse Model" />
+            </a>
+            <div class="carousel-caption">
+              <p>Rapberry pi with camera</p>
+            </div>
+          </div>
+      <div class="item">
+            <a>  <img src="assets/img/mpc.png" alt="MPC" />
+            </a>
+            <div class="carousel-caption">
+              <p>Model-IQ can reveal control performance and data quality trends which would usually be hidden from the control designer</p>
+            </div>
+          </div>          
+        </div><!-- .carousel-inner -->
+        <!--  next and previous controls here
+              href values must reference the id for this carousel -->
+          <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
+      </div><!-- .carousel -->
+      <!-- end carousel -->
+	    <!--<table class="image" align="center" >-->
+            <!--  <caption align="bottom">Figure 1. MLE+ Overview</caption>-->
+            <!--  <tr><td><img src="assets/img/overview.png" alt="Not supported" width="600" height="400"/></td></tr>-->
+            <!--</table>-->
+                              
+        </div>
+          
+          
+        </section>
+
+       <!-- Requirements
+        ================================================== -->
+        <section id="howitworks">
+          <div class="row">
+            <div class="page-header">
+              <h1>Introduction to OpenCv</h1>
+            </div>
+            <p align="justify">
+              OpenCV (Open Source Computer Vision Library: http://opencv.org) is an open-source BSD-licensed library that includes several hundreds of computer vision algorithms.
+			<br>OpenCV has a modular structure, which means that the package includes several shared or static libraries. The following modules are available:
+			<br><br>core - a compact module defining basic data structures, including the dense multi-dimensional array Mat and basic functions used by all other modules.
+			<br><br>imgproc - an image processing module that includes linear and non-linear image filtering, geometrical image transformations (resize, affine and perspective warping, generic table-based remapping), color space conversion, histograms, and so on.
+			<br><br>video - a video analysis module that includes motion estimation, background subtraction, and object tracking algorithms.
+			<br><br>calib3d - basic multiple-view geometry algorithms, single and stereo camera calibration, object pose estimation, stereo correspondence algorithms, and elements of 3D reconstruction.
+			<br><br>features2d - salient feature detectors, descriptors, and descriptor matchers.
+			<br><br>objdetect - detection of objects and instances of the predefined classes (for example, faces, eyes, mugs, people, cars, and so on).
+			<br><br>highgui - an easy-to-use interface to video capturing, image and video codecs, as well as simple UI capabilities.
+			<br><br>gpu - GPU-accelerated algorithms from different OpenCV modules.
+			<br><br>... some other helper modules, such as FLANN and Google test wrappers, Python bindings, and others.
+            </p>
+            
+            
+          </div>
+        </section>
+
+                  <!-- Publication                                                                                                                                                  
+        ================================================== -->
+        <section id="publication">
+          <div class="row">
+            <div class="page-header">
+              <h1>Pre-Requisites</h1>
+            </div>
+            <p>All Pi’s will come with Raspbian distribution and OpenCv installed (since it takes a lot of time).</p>
+			
+			 <p><a class="lead" href="http://docs.opencv.org/doc/tutorials/introduction/linux_install/linux_install.html"> Procedure for installing OpenCv</a></p>
+      
+      
+	  
+	  
+      <BLOCKQUOTE>
+        <p>Nirav Shah,Aayush Sharma, Utsav Mehta and Rahul Mangharam, "The Embedders group boot camp at Penn."</p>
+      </BLOCKQUOTE>
+      
+      <div class="alert alert-info" id="input_help_section">
+      </div>
+
+      <div class="well" id="markdownCheatsheet" >
+              <p> <font size="2">
+              @article{modeliq14,<br />
+        name = {Model-IQ: Uncertainty Propagation from Sensing to Modeling and Control in Buildings.},<br />
+        author = {Madhur Behl, Truong X. Nghiem, and Rahul Mangharam},<br />
+        url = {http://repository.upenn.edu/mlab_papers/63/},<br />
+        year  = {2014},<br />
+        journal = {5th International Conference on Cyber-Physical Systems (ICCPS 2014), Berlin, Germany.},<br />
+        }</font>
+              </p>
+      </div>
+          </div>
+        </section>
+
+      
+	<section id="implementation">
+          <div class="row">
+            <div class="page-header">
+              <h1>Implementation</h1>
+            </div>
+			
+			<h2>Create a Project File</h2>
+			<p align='justify'>
+			mkdir NewProject
+			<br>cd objectTracking
+			<br>emacs object_tracking.cpp
+			<br> The code explaination is in the file.
+			<br> C-X C-c to exit the emacs editor
+			<br> compile the code with the following command
+			<br><br> g++ `pkg-config --cflags opencv` object_tracking.cpp -o output `pkg-config --libs opencv`
+			<br> ./output
+			<!-- image for output-->
+			</p>
+           
+            
+            
+          </div>
+        </section>
+
+
+	  
+                <!-- Contact us                                                                                                                                                     
+        ================================================== 
+        <section id="subscribe">
+          <div class="row">
+            <div class="page-header">
+              <h1>Subscribe</h1>
+            </div>
+            <p>Model-IQ will be available soon for download. If you have any questions about Model-IQ or have any comments please feel free to contact the developing team.</p>
+	    <ol>
+	      <li>Madhur Behl</li>
+        <img src="assets/img/madhur-email.png" alt="some_text">
+
+        <li>Truong Nghiem</li>
+        <img src="assets/img/truong-email.png" alt="some_text">
+
+        <li>Rahul Mangharam</li>
+        <img src="assets/img/rahul-email.png" alt="some_text">      
+	        
+	    </ol>	  
+          </div>
+        </section>
+                                                                                                                     
+        <!-- End Last Section
+        ================================================== --> 	
+			
+      </div>
+    </div>
+  </div>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Developed by <a href="http://mlab.seas.upenn.edu" target="_blank">mLab</a> at the <a href="http://www.upenn.edu" target="_blank">University of Pennsylvania</a>.
+      </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <!--<script src="assets/js/jquery.js"></script>-->
+    <script src="assets/js/jquery-1.8.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/jquery.js"><\/script>')</script>
+    <script>
+      $(document).ready(function(){
+        $('.carousel').carousel({
+          interval: 6000
+        });
+      });
+    </script>  
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>
+
