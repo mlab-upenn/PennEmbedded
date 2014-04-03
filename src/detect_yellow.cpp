@@ -1,5 +1,5 @@
 //#include "stdafx.h"
-
+// chutiye
 #include <cv.h>
 #include <highgui.h>
 
